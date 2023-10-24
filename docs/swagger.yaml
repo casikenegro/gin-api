@@ -1,0 +1,130 @@
+definitions:
+  entities.Product:
+    type: object
+  entities.ProductImage:
+    type: object
+host: localhost:3000
+info:
+  contact: {}
+  title: Tag Service API
+  version: "1.0"
+paths:
+  /products:
+    get:
+      description: GET products data in Db.
+      parameters:
+      - description: Get product
+        in: body
+        name: product
+        required: true
+        schema:
+          items:
+            $ref: '#/definitions/entities.Product'
+          type: array
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+      summary: Get Products
+      tags:
+      - product
+    post:
+      description: Save product data in Db.
+      parameters:
+      - description: Create product
+        in: body
+        name: product
+        required: true
+        schema:
+          $ref: '#/definitions/entities.Product'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+      summary: Create Products
+      tags:
+      - product
+  /products/:id:
+    delete:
+      description: Delete product data in Db.
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+      summary: Delete  product
+      tags:
+      - product
+    put:
+      description: Update product data in Db.
+      parameters:
+      - description: Update product
+        in: body
+        name: product
+        required: true
+        schema:
+          $ref: '#/definitions/entities.Product'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+      summary: Update Products
+      tags:
+      - product
+  /products/:id/image:
+    delete:
+      description: Delete image data in Db.
+      parameters:
+      - description: 'Delete Image '
+        in: body
+        name: image
+        required: true
+        schema:
+          $ref: '#/definitions/entities.ProductImage'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+      summary: Delete image to image
+      tags:
+      - image
+    post:
+      description: Save image data in Db.
+      parameters:
+      - description: 'Add Image '
+        in: body
+        name: image
+        required: true
+        schema:
+          $ref: '#/definitions/entities.ProductImage'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+      summary: Add image to image
+      tags:
+      - image
+  /products/:sku:
+    get:
+      description: FindOne product data in Db.
+      parameters:
+      - description: FindOne product
+        in: body
+        name: product
+        required: true
+        schema:
+          $ref: '#/definitions/entities.Product'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+      summary: FindOne Products
+      tags:
+      - product
+swagger: "2.0"
