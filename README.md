@@ -13,11 +13,9 @@ We got your back, the project already uses docker so you can build docker image
 [GIN](https://gin-gonic.com/)  Framework.
 [GORM](https://github.com/go-gorm/gorm) ORM starter Package.
   
-```
 
 ## Running the app
 
-  
 
 ```bash
 
